@@ -1,0 +1,67 @@
+:root {
+  --bg-color: #fff8e7; /* Cream */
+  --header-color: #2c5f2d; /* Forest Green */
+  --text-color: #4a2511; /* Brown */
+  --accent-color: #ffd54f; /* Yellow */
+  --button-bg: #ff8c42; /* Warm Orange */
+  --button-hover: #e67e22; /* Darker Orange */
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--header-color);
+}
+
+a {
+  color: var(--header-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--button-bg);
+}
+
+.btn-custom {
+  background-color: var(--button-bg);
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+  background-color: var(--button-hover);
+}
+
+.features {
+  background-color: var(--bg-color);
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+
+.card:nth-child(1) {
+  background-color: #f9fbe7; /* Light green */
+}
+.card:nth-child(2) {
+  background-color: #fff3e0; /* Light orange */
+}
+.card:nth-child(3) {
+  background-color: #ffe0e0; /* Light red */
+}
