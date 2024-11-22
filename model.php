@@ -37,14 +37,45 @@ function checkifUserExists($username)
 }
 
 //function to check if a given username and password are valid
-function checkValidUsernameandPassword($username, $password)
+function checkValidUsernameAndPassword($username, $password)
 {
     global $conn;
     $sql = "SELECT * FROM WebsiteUsers WHERE Username = '$username' AND Password = '$password'";
     $result = mysqli_query($conn, $sql);
-    if ($result && mysqli_num_rows($result) > 0) {
+    if (mysqli_num_rows($result) > 0) {
         return true;
     } else {
         return false;
     }
+}
+
+function addRecipe($username, $recipename, $category, $description, $ingredients, $instructions)
+{
+    global $conn;
+    $current_date = date('Ymd');
+    $sql = "INSERT INTO Recipes(Username, RecipeName, Category, Description, Ingredients, Instructions, Date) VALUES
+            ('$username', '$recipename', '$category', '$description', '$ingredients', '$instructions', $current_date)";
+
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+        return true;
+    } else {
+        return false;
+        echo mysqli_errno($conn) . 'Error inserting into database<br>';
+    }
+}
+
+function searchRecipe($recipename)
+{
+    global $conn;
+    $array = [];
+    $sql = "SELECT * FROM Recipes where RecipeName LIKE '%$recipename%'";
+    $result = mysqli_query($conn, $sql);
+    if ($result && mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $array[] = $row;
+        }
+    }
+
+    return $array;
 }

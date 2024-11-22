@@ -161,28 +161,24 @@
       </div>
     </div>
   </section>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous">
+    document.addEventListener('DOMContentLoaded', function() {
+      <?php if (!empty($display_modal_window) && $display_modal_window === 'login'): ?>
+        const loginModal = document.getElementById('logInModal');
+        loginModal.show();
+      <?php endif; ?>
+    });
+  </script>
   <footer
     class="text-white text-center py-3"
     style="background-color: var(--text-color)">
     <p>&copy; 2024 RecipeNest. All rights reserved.</p>
   </footer>
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous">
-    function toggle_modal_window() {
-      $('#logInModal').show();
-    }
 
-    <?php
-
-    if (!empty($display_modal) && $display_modal == 'none');
-    else if (!empty($display_modal) && $display_modal == 'login')
-      echo "toggle_modal_window();";
-    else;
-
-    ?>
-  </script>
 </body>
 
 </html>
